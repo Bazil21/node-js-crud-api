@@ -1,5 +1,5 @@
-const { genSaltSync, hashSync } = require("bcrypt");
 const {create} = require("./user.service");
+const { hashSync, genSaltSync } = require("bcrypt");
 
 
 module.exports={
