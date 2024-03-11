@@ -74,4 +74,18 @@ module.exports = {
       }
     );
   },
+  userLogin: (email, callback) => {
+    pool.query(
+      `Select * From users where email = ?`,
+      [
+        email,
+      ],
+      (error, results, fields) => {
+        if (error) {
+          return callback(error);
+        }
+        return callback(null, results[0]);
+      }
+    );
+  },
 };
