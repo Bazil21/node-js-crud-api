@@ -8,12 +8,12 @@ const {
 } = require("./user.controller");
 
 const router = require("express").Router();
-
-router.post("/", createUser);
-router.get("/", getUsers);
-router.get("/:id", getUserById);
-router.patch("/", updateUsers);
-router.delete("/", deleteUsers);
+const {checkToken} = require("../../auth/token_validation");
+router.post("/",checkToken, createUser);
+router.get("/",checkToken, getUsers);
+router.get("/:id",checkToken, getUserById);
+router.patch("/",checkToken, updateUsers);
+router.delete("/",checkToken, deleteUsers);
 router.post("/login", userLogin);
 
 
